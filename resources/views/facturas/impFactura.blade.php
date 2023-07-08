@@ -27,11 +27,11 @@
         </tr>
         <tr>
         <td>producto: </td>
-        <td>id-{{$factura->idVenta}} {--{$factura->venta->productos->nombre--}}</td>
+        <td>id-{{$factura->idVenta}} {{$factura->venta->producto->nombre}}</td>
         </tr>
         <tr>
         <td>total: </td>
-        <td>{{--$factura->venta->total--}}</td>
+        <td>{{$factura->venta->total}}</td>
         </tr>
         <tr> 
         <td>IVA:</td>

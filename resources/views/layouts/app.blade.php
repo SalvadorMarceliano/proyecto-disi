@@ -31,36 +31,57 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <script>
+    function recuperarVenta() {
+    var select = document.querySelector('select[name="idVenta"]');
+    var vent = select.options[select.selectedIndex].text.split('total:')[1].trim();
+    var inputPrecio = document.querySelector('input[name="vent"]');
+    inputPrecio.value = vent;
+    }
+    </script>
+
+<script>
+    function recuperarTotal() {
+    var select = document.querySelector('select[name="idProducto"]');
+    var precio = select.options[select.selectedIndex].text.split('Precio:')[1].split('Stok:')[0].trim();
+    var inputPrecio = document.querySelector('input[name="precio"]');
+    inputPrecio.value = precio;
+    }
+    </script>
+
+    <script>
     function calcular() {
-      var num1 = parseFloat(document.getElementById("num1").value);
-      var num2 = parseFloat(document.getElementById("num2").value);
-      
-      var resultado = num1 * num2; 
-      
+      var precio = parseFloat(document.getElementById("precio").value);
+      var cantidad = parseFloat(document.getElementById("cantidad").value);
+      var resultado = precio * cantidad; 
       document.getElementById("resultado").value = resultado;
     }
   </script>
 
 <script>
-    function calcularIVA() {
-      var total = parseFloat(document.getElementById("total").value);
-      var X = 100;
-      
-      var resIVA1 = total * 21; 
-      var resIVA = resIVA1 / 100;
-      document.getElementById("resIVA").value = resIVA;
+    function calcularS() {
+      var stok = parseFloat(document.getElementById("stok").value);
+      var cantidad = parseFloat(document.getElementById("cantidad").value);
+      var St = stok - cantidad;
+      document.getElementById("St").value =St 
     }
   </script>
 
-  <script>
-  function recuperarPrecio() {
-    var select = document.querySelector('select[name="idProducto"]');
-    var precio = select.options[select.selectedIndex].text.split('-')[1];
-    var inputPrecio = document.querySelector('input[name="precio"]');
-    inputPrecio.value = precio;
-  }
-</script>
+<script>
+    function calcularIVA() {
+      var vent = parseFloat(document.getElementById("vent").value);
+      var X = 100;
+      
+      var resIVA1 = vent * 21; 
+      var resIVA = resIVA1 / 100;
+      document.getElementById("resIVA").value = resIVA;
+    }
+  </script> 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  calcularS();
+});
+</script>
 </head>
 <body>
 <div id="app">

@@ -10,15 +10,15 @@ class facturasModel extends Model
 {
     use HasFactory;
     protected $primaryKey ='idfactura';
-    protected $foreignKey ='idventa';
+    protected $foreignKey ='idVenta';
     protected $table = 'facturas';
     protected $fillable =[
         'razon-social',
         'rfc',
-        'idventa',
+        'idVenta',
         'iva',
     ];
     public function venta(){
-        return $this->belongsTo('App\Models\ventasModel','idventa','idventa');
+        return $this->belongsTo('App\Models\ventasModel','idVenta','idVenta');
     }
 }

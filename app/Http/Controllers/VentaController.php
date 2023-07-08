@@ -55,7 +55,7 @@ class VentaController extends Controller
     {
         $venta = new ventasModel();
         $venta = $this->createUpdateVenta($request, $venta);
-        return redirect()->route('ventas.index');
+        return redirect()->route('ventas.editP',$venta->idVenta);
     }
 
     public function createUpdateVenta(Request $request, $venta){
@@ -106,6 +106,14 @@ class VentaController extends Controller
         $venta=$this->createUpdateVenta($request, $venta);   
         return redirect()->route('ventas.index');
     }
+
+    public function editP(string $id)
+    {
+        $venta=ventasModel::where('idventa',$id)->firstOrFail();     
+        $producto = ProductoModel::where('idProducto',$venta->idProducto)->firstOrFail();
+        return view('ventas.editP', compact('venta','producto'));
+    }
+
 
     /**
      * Remove the specified resource from storage.

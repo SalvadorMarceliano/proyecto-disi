@@ -42,7 +42,7 @@
         <th scope="col"> id</th>
         <th scope="col"> rfc</th>
         <th scope="col"> razon Social</th>
-        <th scope="col"> produbto</th>
+        <th scope="col"> producto</th>
         <th scope="col"> total </th> 
         <th scope="col"> IVA</th>
         <th> acciones </th>
@@ -54,8 +54,8 @@
             <th scope="row">{{$factura->idfactura}}</th>
             <td>{{$factura->rfc}}</td>
             <td width="40%">{{$factura->razonSocial}}</td>
-            <td>id-{{$factura->idventa}}{{--$factura->venta->producto->nombre--}}</td>
-            <td>{{$factura->total}}</td>
+            <td>{{$factura->idventa}}{{$factura->venta->producto->nombre}}</td>
+            <td>{{$factura->venta->total}}</td>
             <td>{{$factura->iva}}</td>
             <td>
             <a href="{{route('facturas.show',$factura->idfactura)}}" class="btn btn-primary"><i class="fas fa-eye"></i></a>

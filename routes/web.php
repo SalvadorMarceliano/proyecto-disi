@@ -101,6 +101,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::resource('ventas', VentaController::class);
     Route::resource('categorias', CategoriaController::class);
     Route::resource('facturas', facturasController::class);
+    Route::get('/ventas/{id}/editP',[ventaController::class,'editP'])->name('ventas.editP');
     Route::get('productos-pdf', [ProductoController::class, 'exportPDF'])->name('productos.pdf');
 });
 
